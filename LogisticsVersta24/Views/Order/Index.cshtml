@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LogisticsVersta24.Models.Order>
+
+@{
+    ViewData["Title"] = "Заказы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Заказы</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Создать новый заказ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Номер заказа
+            </th>
+            <th>
+                Город отправителя
+            </th>
+            <th>
+                Адрес отправителя
+            </th>
+            <th>
+                Город получателя
+            </th>
+            <th>
+                Адрес получателя
+            </th>
+            <th>
+                Вес груза (г)
+            </th>
+            <th>
+                Дата забора груза
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeightInGrams)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceivedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Детали", "Details", controllerName:"Order", new { id=item.Id }, new {@class = "btn btn-info" })
+                </td>
+                <td>
+                    @Html.ActionLink("Удалить", "Delete", controllerName:"Order", new { id=item.Id }, new {@class = "btn btn-danger" })
+                    
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

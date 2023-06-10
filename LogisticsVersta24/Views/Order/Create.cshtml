@@ -1,0 +1,57 @@
+﻿@model LogisticsVersta24.Models.Order
+
+@{
+    ViewData["Title"] = "Заказ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Заказ</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="FromCity" class="control-label">Город отправителя</label>
+                <input asp-for="FromCity" class="form-control" />
+                <span asp-validation-for="FromCity" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="FromAddress" class="control-label">Адрес отправителя</label>
+                <input asp-for="FromAddress" class="form-control" />
+                <span asp-validation-for="FromAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ToCity" class="control-label">Город получателя</label>
+                <input asp-for="ToCity" class="form-control" />
+                <span asp-validation-for="ToCity" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ToAddress" class="control-label">Адрес получателя</label>
+                <input asp-for="ToAddress" class="form-control" />
+                <span asp-validation-for="ToAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="WeightInGrams" class="control-label">Вес груза (г)</label>
+                <input asp-for="WeightInGrams" class="form-control" />
+                <span asp-validation-for="WeightInGrams" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ReceivedDate" class="control-label">Дата забора груза</label>
+                <input asp-for="ReceivedDate" class="form-control" />
+                <span asp-validation-for="ReceivedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
