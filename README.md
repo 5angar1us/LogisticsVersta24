@@ -16,6 +16,6 @@
 ## Технологии
 Необходимо использовать следующий стек технологий:
 - ASP.NET 6+ на backend
-- React.JS (предпочтительно) или ASP.NET MVC на front
+- React.JS (предпочтительно) или ASP.NET**MVC**на**front
 - Entity Framework
 - База данных может быть любой
